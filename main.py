@@ -21,7 +21,7 @@ class Game:
         self.playerpos = vec(0, 0)
         self.showstart = True
         self.lifes = 3
-        self.showfootprint = True
+        self.showfootprint = False
 
 
 
