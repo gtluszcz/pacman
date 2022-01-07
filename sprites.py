@@ -82,7 +82,7 @@ class Ghost(pg.sprite.Sprite):
 
         #chase code 2.0 - footprints
         if self.game.player.chase == 0:
-            hits = pg.sprite.spritecollideany(self, self.game.footprints, False)
+            hits = pg.sprite.spritecollideany(self, self.game.footprints)
             if hits:
                 self.dir = hits.dir
                 if not self.firstfootprint:
@@ -388,7 +388,7 @@ class Player(pg.sprite.Sprite):
                 self.dest.y = self.pos.y
 
     def collide_with_points(self):
-                hits = pg.sprite.spritecollideany(self, self.game.points, False)
+                hits = pg.sprite.spritecollideany(self, self.game.points)
                 if not self.firsttimecollide:
                     if hits:
                         if self.lasthit != hits:
@@ -416,7 +416,7 @@ class Player(pg.sprite.Sprite):
                     self.firsttimecollide = False
 
     def collide_with_ghosts(self):
-        hits = pg.sprite.spritecollideany(self, self.game.ghosts, False)
+        hits = pg.sprite.spritecollideany(self, self.game.ghosts)
         if hits:
             hit = pg.sprite.spritecollideany(self, self.game.ghosts, pg.sprite.collide_mask)
             now = pg.time.get_ticks()
@@ -445,7 +445,7 @@ class Player(pg.sprite.Sprite):
             self.game.endgame = True
 
     def collide_with_boosts(self):
-        hits = pg.sprite.spritecollideany(self, self.game.boosts, False)
+        hits = pg.sprite.spritecollideany(self, self.game.boosts)
         if hits:
             if hits.kind == 'eat':
                 self.game.chase_sound.play()
